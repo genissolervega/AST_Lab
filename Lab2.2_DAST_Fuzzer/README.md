@@ -123,7 +123,7 @@ En aquest cas, podem veure que no ha trobat cap error 500 en els endpoints que h
 Podem consultar les peticions que ha executat en els següents logs:
 
 ```bash
-cat ./Test/RestlerResults/experiment<GUID>/logs/main.text
+cat ./Test/RestlerResults/experiment<GUID>/logs/main.txt
 cat ./Test/RestlerResults/experiment<GUID>/logs/speccov.json
 ```
 

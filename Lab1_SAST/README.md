@@ -76,7 +76,7 @@ En el nostre cas, com que la API està programada en dotnet 6.0, farem servir el
 
 Actualment SonarQube no proporciona cap imatge del `Scanner` per .NET, només està disponible el generic a [DockerHub](https://hub.docker.com/r/sonarsource/sonar-scanner-cli).
 
-Per aquest laboratori, farem servir una imatge de la comunitat, que inclou el SonarScanner per .NET, amb MSBuild i les seves dependencies (https://github.com/nosinovacao/dotnet-sonar).
+Per aquest laboratori, farem servir una imatge Docker custom que inclou l'eina SonarScanner per .NET, amb MSBuild i les seves dependencies (https://github.com/TheMatrix97/dotnet-sonar). 
 
 Només haurem de substituir els següents paràmetres:
 
@@ -86,7 +86,7 @@ Només haurem de substituir els següents paràmetres:
   
 ```bash
 cd dotnet-6-crud-api
-docker run -it --rm -v .:/source ghcr.io/nosinovacao/dotnet-sonar:latest bash -c "cd source \
+docker run -it --rm -v .:/source ghcr.io/thematrix97/dotnet-sonar:latest sh -c "cd source \
     && dotnet /sonar-scanner/SonarScanner.MSBuild.dll begin /k:$KEY /d:sonar.host.url=$HOST /d:sonar.login=$TOKEN \
     && dotnet restore \
     && dotnet build -c Release \
